@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serial Port Reader</title>
+
+    <link rel="stylesheet" href="styles/internal/fonts.css">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div class="textContainer">
+        <h2>Serial Port Reader</h2>
+        <p class="port_info">Click the button to connect -></p>
+    </div>
+
+    <button onclick="connectSerial()" class="connect">Connect</button>
+    <button onclick="disconnectSerial()" class="disconnect">Disconnect</button>
+
+    <textarea class="output" readonly></textarea>
+
+    <script src="scripts/frontend/serial_read.js"></script>
+</body>
+</html>
