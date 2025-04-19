@@ -8,19 +8,12 @@ body{
     background: #555;
 }
 
-h2{
-    font-family: "Poppins", sans-serif;
-}
-
-p{
-    font-family: "Ubuntu", sans-serif;
-}
-
-textarea{
+.output{
     resize: none;
     position: absolute;
     top: 60px;
     left: 0;
+
     background: #ffffff55;
 
     border: none;
@@ -30,24 +23,66 @@ textarea{
     height: calc(100% - 60px);
 }
 
+.errors{
+    resize: none;
+
+    transform: translate(455px, -50px);
+
+    background: #ffffff55;
+
+    border: none;
+    outline: none;
+
+    width: calc(100% - 460px);
+    height: 50px;
+}
+
 button{
-    padding: 14px;
-    margin: 5px;
-    position: absolute;
+    padding: 17.5px;
+
+    margin-top: 5px;
+    margin-right: 5px;
 }
 
 .connect{
-    top: -2.5px;
-    right: 100px;
+    transform: translate(2.5px, -2.5px);
 }
 
 .disconnect{
-    top: -2.5px;
-    right: -2.5px;
+    transform: translate(2.5px, -2.5px);
 }
 
-.textContainer{
+.header{
+    display: flex;
+    justify-content: space-between;
+
+    width: 450px;
+    height: 55px;
+
     background: #fff;
-    width: 100%;
-    padding-left: 5px;
+}
+
+.options{
+    min-height: 55px;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    background: #fff;
+
+    padding: 10px;
+    border-top-right-radius: 10px;
+}
+
+.version{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    background: #fff;
+
+    padding: 10px;
+
+    border-top-left-radius: 10px;
 }

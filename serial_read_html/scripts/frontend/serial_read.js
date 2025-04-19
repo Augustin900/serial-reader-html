@@ -3,7 +3,11 @@ let reader;
 let keepReading = false;
 
 let output = document.querySelector(".output")
-let port_display = document.querySelector(".port_info")
+let errors = document.querySelector(".errors")
+
+function raise_error(error_text, error_message){
+    errors.innerHTML = error_text + error_message;
+}
 
 async function connectSerial() {
     try {
@@ -12,22 +16,25 @@ async function connectSerial() {
         baud = prompt("Please input a baudrate below: ")
         baud_rate = await port.open({ baudRate: baud });
 
-        const info = port.getInfo();
-        const portText = info.usbVendorId && info.usbProductId 
-                    ? `Vendor ID: ${info.usbVendorId}, Product ID: ${info.usbProductId}` 
-                    : "Unknown Port";
-
-        port_display.innerHTML = `Connected to port ${portText} at ${baud} baud`
+        document.title = `Serial Port Reader - Connected to port ${port.path} at ${baud} baud`
 
         keepReading = true;
         readSerialData();
     } catch (err) {
-        alert("Error: " + err.message);
+        raise_error("Error: ", err.message);
     }
 }
 
 async function disconnectSerial() {
-    window.location.reload()
+    if (port) {
+        keepReading = false;
+        try {
+            await port.close();
+            output.innerText = "Disconnected";
+        } catch (err) {
+            raise_error("Error closing port: ", err);
+        }
+    }
 }
 
 async function readSerialData() {
@@ -40,11 +47,14 @@ async function readSerialData() {
                 if (value) {
                     let text = new TextDecoder().decode(value);
                     output.innerHTML += text
-                    output.scrollTop = output.scrollHeight;
+
+                    if (document.getElementById("autoscrollToggle").checked) {
+                        output.scrollTop = output.scrollHeight;
+                    }
                 }
             }
         } catch (error) {
-            console.error("Read error: ", error);
+            raise_error("Read error: ", error);
         } finally {
             reader.releaseLock();
         }

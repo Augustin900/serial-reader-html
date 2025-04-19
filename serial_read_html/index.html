@@ -3,21 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serial Port Reader</title>
+    <title>Serial Port Reader - Waiting for a connection</title>
 
-    <link rel="stylesheet" href="styles/internal/fonts.css">
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <div class="textContainer">
-        <h2>Serial Port Reader</h2>
-        <p class="port_info">Click the button to connect -></p>
+    <div class="header">
+        <button onclick="connectSerial()" class="connect">Connect to a Serial Device</button>
+        <button onclick="disconnectSerial()" class="disconnect">Disconnect from a Serial Device</button>
     </div>
 
-    <button onclick="connectSerial()" class="connect">Connect</button>
-    <button onclick="disconnectSerial()" class="disconnect">Disconnect</button>
-
     <textarea class="output" readonly></textarea>
+    <textarea class="errors" readonly>Errors will show up here.</textarea>
+
+    <div class="options">
+        <details>
+            <summary>Options</summary>
+            <label>
+                <input type="checkbox" id="autoscrollToggle" checked> Enable Autoscroll
+            </label>
+        </details>
+    </div>
+
+    <div class="version">Version 1.0.0</div>
 
     <script src="scripts/frontend/serial_read.js"></script>
 </body>
