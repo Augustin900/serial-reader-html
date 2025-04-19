@@ -5,6 +5,8 @@ let keepReading = false;
 let output = document.querySelector(".output")
 let errors = document.querySelector(".errors")
 
+let autoscrollToggle = document.getElementById("autoscrollToggle")
+
 function raise_error(error_text, error_message){
     errors.innerHTML = error_text + error_message;
 }
@@ -48,7 +50,7 @@ async function readSerialData() {
                     let text = new TextDecoder().decode(value);
                     output.innerHTML += text
 
-                    if (document.getElementById("autoscrollToggle").checked) {
+                    if (autoscrollToggle.checked) {
                         output.scrollTop = output.scrollHeight;
                     }
                 }
