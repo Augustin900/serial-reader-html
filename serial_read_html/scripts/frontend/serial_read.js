@@ -19,7 +19,7 @@ async function connectSerial() {
         baud = prompt("Please input a baudrate below: ")
         baud_rate = await port.open({ baudRate: baud });
 
-        connect.innerHTML = `Serial Port Reader - Connected to port ${port.path} at ${baud} baud`
+        connect.innerHTML = `Connected to port ${port.path} at ${baud} baud`
         output.innerHTML = ""
 
         keepReading = true;
