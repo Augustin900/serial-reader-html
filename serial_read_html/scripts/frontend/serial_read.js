@@ -4,6 +4,7 @@ let keepReading = false;
 
 let output = document.querySelector(".output")
 let errors = document.querySelector(".errors")
+let connect = document.querySelector(".status")
 
 let autoscrollToggle = document.getElementById("autoscrollToggle")
 
@@ -18,7 +19,8 @@ async function connectSerial() {
         baud = prompt("Please input a baudrate below: ")
         baud_rate = await port.open({ baudRate: baud });
 
-        document.title = `Serial Port Reader - Connected to port ${port.path} at ${baud} baud`
+        connect.innerHTML = `Serial Port Reader - Connected to port ${port.path} at ${baud} baud`
+        output.innerHTML = ""
 
         keepReading = true;
         readSerialData();

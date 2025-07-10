@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serial Port Reader - Waiting for a connection</title>
+    <title>Serial Port Reader</title>
 
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
     <div class="header">
-        <button onclick="connectSerial()" class="connect">Connect to a Serial Device</button>
-        <button onclick="disconnectSerial()" class="disconnect">Disconnect from a Serial Device</button>
+        <div class="status">Waiting for a connection...</div>
+        <button onclick="connectSerial()" class="connect">Connect</button>
+        <button onclick="disconnectSerial()" class="disconnect">Disconnect</button>
     </div>
 
-    <textarea class="output" readonly></textarea>
+    <textarea class="output" readonly>Output will be shown here.</textarea>
     <textarea class="errors" readonly>Errors will show up here.</textarea>
 
     <div class="options">
@@ -25,7 +26,16 @@
         </details>
     </div>
 
-    <div class="version">Version 1.0.0</div>
+    <div class="changelog">
+        <h1>Changelog</h1>
+        <p><b>Beta v1.0.1</b> - Resized the output window and added labels</p>
+        <p><b>Beta v1.0.0</b> - Complete restyle and release</p>
+        <p><b>Beta v0.9.9</b> - Added error prompt and options menu</p>
+        <p><b>Alpha v0.5.0</b> - Made things easier on the eyes</p>
+        <p><b>Alpha v0.1.0</b> - Inital prototype</p>
+    </div>
+
+    <div class="version">Beta v1.0.2</div>
 
     <script src="scripts/frontend/serial_read.js"></script>
 </body>

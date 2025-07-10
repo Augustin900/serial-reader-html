@@ -20,7 +20,18 @@ body{
     outline: none;
 
     width: 100%;
-    height: calc(100% - 60px);
+    height: 25%;
+}
+
+.changelog{
+    position: absolute;
+    top: calc(25% + 65px);
+    background: #fff;
+    padding: 5px;
+    width: 100%;
+}
+.changelog h1{
+    text-align: center;
 }
 
 .errors{
@@ -38,10 +49,11 @@ body{
 }
 
 button{
-    padding: 17.5px;
-
     margin-top: 5px;
     margin-right: 5px;
+
+    width: 50%;
+    height: 25px;
 
     border: none;
     outline: none;
@@ -50,11 +62,15 @@ button{
 }
 
 .connect{
-    transform: translate(2.5px, -2.5px);
+    transform: translate(117.5px, -2.5px);
 }
 
 .disconnect{
-    transform: translate(2.5px, -2.5px);
+    transform: translate(2.5px, 22.5px);
+}
+
+.status{
+    width: 450px;
 }
 
 .header{
