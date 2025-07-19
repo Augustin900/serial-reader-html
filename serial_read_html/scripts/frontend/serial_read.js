@@ -7,6 +7,7 @@ let errors = document.querySelector(".errors")
 let connect = document.querySelector(".status")
 
 let autoscrollToggle = document.getElementById("autoscrollToggle")
+let historyToggle = document.getElementById("historyToggle")
 
 function raise_error(error_text, error_message){
     errors.innerHTML = error_text + error_message;
@@ -50,7 +51,13 @@ async function readSerialData() {
                 if (done) break;
                 if (value) {
                     let text = new TextDecoder().decode(value);
-                    output.innerHTML += text
+
+                    if (historyToggle.checked){
+                        output.innerHTML += text
+                    }else{
+                        output.innerHTML = ""
+                        output.innerHTML += text
+                    }
 
                     if (autoscrollToggle.checked) {
                         output.scrollTop = output.scrollHeight;
